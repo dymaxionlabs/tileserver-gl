@@ -99,7 +99,7 @@ module.exports = function(options, repo, params, id, styles, publicUrl) {
         } else {
           if (tileJSON['format'] == 'pbf') {
             var isGzipped = data.slice(0,2).indexOf(
-                new Buffer([0x1f, 0x8b])) === 0;
+                Buffer.from([0x1f, 0x8b])) === 0;
             var style = req.query.style;
             if (style && tileshrinkGl) {
               if (!shrinkers[style]) {

@@ -50,7 +50,7 @@ var extensionToFormat = {
  * string is for unknown or unsupported formats.
  */
 var cachedEmptyResponses = {
-  '': new Buffer(0)
+  '': Buffer.alloc(0)
 };
 
 /**
@@ -83,7 +83,7 @@ function createEmptyResponse(format, color, callback) {
   var color = new Color(color);
   var array = color.array();
   var channels = array.length == 4 && format != 'jpeg' ? 4 : 3;
-  sharp(new Buffer(array), {
+  sharp(Buffer.from(array), {
     raw: {
       width: 1,
       height: 1,
